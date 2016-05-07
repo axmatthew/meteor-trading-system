@@ -1,0 +1,27 @@
+<template name="supplierItem">
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="action-menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'editSupplier'}}');">修改</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('deleteSupplier', '{{_id}}');">刪除</li>
+      </ul>
+    </td> 
+    <td class="mdl-data-table__cell--non-numeric">{{category}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{pic}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{factory}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{contactPerson}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{contactPhone}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{qq}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{wangWang}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{address}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{majorProducts}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alibaba}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{bankAccountBranch}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{bankAccountName}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{bankAccountNumber}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{remarks}}</td>
+  </tr>
+</template>

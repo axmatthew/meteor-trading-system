@@ -1,0 +1,35 @@
+<template name="tasks">
+  {{#contentFor "title"}}工作列表{{/contentFor}}
+  <!-- http://www.getmdl.io/components/index.html#tables-section [Data table] -->
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">
+          <button id="action-menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu">
+            <li class="mdl-menu__item" onclick="Router.go('newTask');">新增</li>
+          </ul>
+        </th>
+        <th class="mdl-data-table__cell--non-numeric">Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Owner</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Title</th>
+        <th class="mdl-data-table__cell--non-numeric">EnquiryNum</th>
+        <th class="mdl-data-table__cell--non-numeric long-content"><b>[Company Name]</b> Description</th>
+        <th class="mdl-data-table__cell--non-numeric">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each tasks}}
+      {{> taskItem}}
+      {{/each}}
+      <tr style="height:8px;background-color:#673ab7">
+        <td colspan="7" style="height:8px"></td>
+      </tr>
+      {{#each nextTasks}}
+      {{> taskItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

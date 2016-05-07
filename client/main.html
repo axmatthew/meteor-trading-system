@@ -1,0 +1,123 @@
+<head>
+  <title>貿易系統</title>
+<!--
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="images/favicon.png" />
+<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1.1", {packages: ["bar"]});
+
+    var CLIENT_ID = "278064067602-nlgqlbtpqvlho5njgeo4b5kgu2929brt.apps.googleusercontent.com";
+    var CLIENT_SECRET = "t9rViubCnTuAT7glgysFIwcO";
+    var SCOPES = ["https://www.googleapis.com/auth/drive",
+                  "https://www.googleapis.com/auth/script.external_request",
+                  "https://www.googleapis.com/auth/script.storage",
+                  "https://www.googleapis.com/auth/spreadsheets",
+                  "https://www.googleapis.com/auth/tasks",
+                  "https://www.googleapis.com/auth/tasks.readonly",
+                  "https://www.googleapis.com/auth/userinfo.email"];
+    var authenticated = false;
+    var pendingApiCalls = [];
+
+    function checkAuth() {
+      gapi.auth.authorize({
+        client_id: CLIENT_ID,
+        scope: SCOPES.join(" "),
+        immediate: true
+      }, handleAuthResult);
+    }
+
+    function handleAuthResult(authResult) {
+      var authorizeDiv = document.getElementById("authorize-div");
+      if (authResult && !authResult.error) {
+        // Hide auth UI
+        authorizeDiv.style.display = "none";
+        authenticated = true;
+        pendingApiCalls.forEach(function(params) { callScriptFunction(params[0], params[1], params[2]); })
+      } else {
+        // Show auth UI, allowing the user to initiate authorization by clicking authorize button.
+        authorizeDiv.style.display = "inline";
+      }
+    }
+
+    // Initiate auth flow in response to user clicking authorize button.
+    function handleAuthClick(event) {
+      gapi.auth.authorize({
+        client_id: CLIENT_ID,
+        scope: SCOPES.join(" "),
+        immediate: false
+      }, handleAuthResult);
+      return false;
+    }
+
+    // Calls an Apps Script function
+    function callScriptFunction(func, parameters, callback) {
+      if (!authenticated) {
+        pendingApiCalls.push([func, parameters, callback]);
+        return null;
+      }
+
+      var scriptId = "MXGYEugzHbK3KCSNpsvw691yeSNBRcRjT";
+
+      // Create an execution request object.
+      var request = {
+        function: func,
+        parameters: parameters,
+        devMode: true
+      };
+
+      // Make the API request.
+      var op = gapi.client.request({
+        root: "https://script.googleapis.com",
+        path: "v1/scripts/" + scriptId + ":run",
+        method: "POST",
+        body: request
+      });
+
+      op.execute(function(resp) {
+        if (resp.error && resp.error.status) {
+          // The API encountered a problem before the script started executing.
+          appendPre("Error calling API (Document removed):");
+          appendPre(JSON.stringify(resp, null, 2));
+          callback(null);
+        } else if (resp.error) {
+          // The API executed, but the script returned an error.
+
+          // Extract the first (and only) set of error details.
+          // The values of this object are the script's 'errorMessage' and
+          // 'errorType', and an array of stack trace elements.
+          var error = resp.error.details[0];
+          appendPre("Script error message (Document removed): " + error.errorMessage);
+
+          if (error.scriptStackTraceElements) {
+            // There may not be a stacktrace if the script didn't start executing.
+            appendPre("Script error stacktrace (Document removed):");
+            for (var i = 0; i < error.scriptStackTraceElements.length; i++) {
+              var trace = error.scriptStackTraceElements[i];
+              appendPre("\t" + trace.function + ":" + trace.lineNumber);
+            }
+          }
+          callback(null);
+        } else {
+          callback(resp.response.result);
+        }
+      });
+    }
+
+    // Append a pre element to the body containing the given messageas its text node.
+    function appendPre(message) {
+      var pre = document.getElementById("output");
+      var textContent = document.createTextNode(message + "\n");
+      pre.appendChild(textContent);
+    }
+  </script>
+  <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+</head>

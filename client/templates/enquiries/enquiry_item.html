@@ -1,0 +1,49 @@
+<template name="enquiryItem">
+  <tr class="tr-{{status}}" ondblclick="Router.go('{{pathFor 'editEnquiry'}}');">
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="action-menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu-{{_id}}">
+        <li id="status-menu-{{_id}}" class="mdl-menu__item">Change Status</li>
+        <li id="doc-menu-{{_id}}" class="mdl-menu__item">Documents</li>
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'editEnquiry'}}');">修改</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('deleteEnquiry', '{{_id}}');">刪除</li>
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'newPurchaseOrder'}}');">Create PO</li>
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'newTaskFromEnquiry'}}');">New Task</li>
+      </ul>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="status-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'New');">New</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Quoted');">Quoted</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Active');">Active</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'NotActive');">Not Active</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Signed');">Signed</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Done');">Done</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Closed');">Closed</li>
+      </ul>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="doc-menu-{{_id}}">
+        <li class="mdl-menu__item generate-quotation">Generate Quotation</li>
+        <li class="mdl-menu__item generate-e-quotation">Generate English Quotation</li>
+        <li class="mdl-menu__item generate-sales-confirmation">Generate Sales Confirmation</li>
+        <li class="mdl-menu__item generate-deposit-invoice">Generate Deposit Invoice</li>
+        <li class="mdl-menu__item generate-balance-invoice">Generate Balance Invoice</li>
+        <li class="mdl-menu__item generate-receipt">Generate Receipt</li>
+        <li class="mdl-menu__item generate-dn">Generate DN</li>
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'documents'}}');">Open Documents</li>
+      </ul>
+    </td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate date}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{sales}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{companyName}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{contactPerson}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{tels}}</td>
+    <td class="mdl-data-table__cell--non-numeric long-content">{{emails}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{address}}</td>
+    <td class="mdl-data-table__cell--non-numeric long-content">{{description}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{deadline}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{status}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{enquiryNum}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{remarks}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{nextTask}}</td>
+  </tr>
+</template>

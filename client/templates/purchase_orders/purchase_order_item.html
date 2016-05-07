@@ -1,0 +1,65 @@
+<template name="purchaseOrderItem">
+  <tr class="tr-{{status}}" ondblclick="Router.go('{{pathFor 'editPurchaseOrder'}}');">
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="action-menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu-{{_id}}">
+        <li id="status-menu-{{_id}}" class="mdl-menu__item">Change Status</li>
+        <li id="payments-menu-{{_id}}" class="mdl-menu__item">Payments</li>
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'editPurchaseOrder'}}');">修改</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('deletePurchaseOrder', '{{_id}}');">刪除</li>
+      </ul>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="status-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Meteor.call('editPurchaseOrderStatus', '{{_id}}', 'Sample');">Sample</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editPurchaseOrderStatus', '{{_id}}', 'Manufacturing');">Manufacturing</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editPurchaseOrderStatus', '{{_id}}', 'Delivering');">Delivering</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editPurchaseOrderStatus', '{{_id}}', 'Done');">Done</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('editPurchaseOrderStatus', '{{_id}}', 'Closed');">Closed</li>
+      </ul>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="payments-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Meteor.call('paidSample', '{{_id}}');">Client Paid Sample</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('paidDeposit', '{{_id}}');">Client Paid Deposit</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('paidRemaining', '{{_id}}');">Client Paid Remaining</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('paidFactorySample', '{{_id}}');">Factory Paid Sample</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('paidFactoryDeposit', '{{_id}}');">Factory Paid Deposit</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('paidFactoryRemaining', '{{_id}}');">Factory Paid Remaining</li>
+      </ul>
+    </td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate signDate}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{poNum}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{purchase}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{sales}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{companyName}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{contactPerson}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{tels}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{emails}}</td>
+    <td class="mdl-data-table__cell--non-numeric long-content">{{deliveryAddress}}</td>
+    <td class="mdl-data-table__cell--non-numeric long-content">{{description}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate deadline}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidSample}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidDeposit}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidRemaining}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{factory}}</td>
+    <td>{{cost}}</td>
+    {{#unless limitedAccess}}
+    <td>{{price}}</td>
+    {{/unless}}
+    <td>{{amount}}</td>
+    <td>{{spareAmount}}</td>
+    <td>{{otherCost}}</td>
+    <td>{{logisticsCost}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate sampleDate}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate deliveryDate}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidFactorySample}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidFactoryDeposit}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{paidFactoryRemaining}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{status}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate finishDate}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{remarks}}</td>
+    {{#unless limitedAccess}}
+    <td>{{formatPercentage gpPercent}}</td>
+    <td>{{gp}}</td>
+    {{/unless}}
+  </tr>
+</template>

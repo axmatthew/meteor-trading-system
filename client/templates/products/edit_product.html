@@ -1,0 +1,154 @@
+<template name="editProduct">
+  {{#contentFor "title"}}修改產品{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="pic" name="pic" value="{{pic}}" />
+              <label class="mdl-textfield__label" for="pic">PIC...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="code" name="code" value="{{code}}" />
+              <label class="mdl-textfield__label" for="code">編號...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="category1" name="category1" value="{{category1}}" />
+              <label class="mdl-textfield__label" for="category1">主類型...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="category2" name="category2" value="{{category2}}" />
+              <label class="mdl-textfield__label" for="category2">次類型...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="name" name="name" value="{{name}}" />
+              <label class="mdl-textfield__label" for="name">名稱...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="inWebsite" name="inWebsite" value="{{inWebsite}}" />
+              <label class="mdl-textfield__label" for="inWebsite">In Website...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="haveSample" name="haveSample" value="{{haveSample}}" />
+              <label class="mdl-textfield__label" for="haveSample">Have Sample...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="size" name="size" value="{{size}}" />
+              <label class="mdl-textfield__label" for="size">尺寸...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="weight" name="weight" value="{{weight}}" />
+              <label class="mdl-textfield__label" for="weight">重量...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="material" name="material" value="{{material}}" />
+              <label class="mdl-textfield__label" for="material">材料...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="packing" name="packing" value="{{packing}}" />
+              <label class="mdl-textfield__label" for="packing">包裝...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="printing" name="printing" value="{{printing}}" />
+              <label class="mdl-textfield__label" for="printing">印刷...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="moq" name="moq" value="{{moq}}" />
+              <label class="mdl-textfield__label" for="moq">最低訂量...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="cost" name="cost" value="{{cost}}" />
+              <label class="mdl-textfield__label" for="cost">成本...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="otherCost" name="otherCost" value="{{otherCost}}" />
+              <label class="mdl-textfield__label" for="otherCost">其他費用...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="leadTime" name="leadTime" value="{{leadTime}}" />
+              <label class="mdl-textfield__label" for="leadTime">貨期...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="supplier" name="supplier" value="{{supplier}}" />
+              <label class="mdl-textfield__label" for="supplier">供應商...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="quotationInfo1" name="quotationInfo1" value="{{quotationInfo1}}" />
+              <label class="mdl-textfield__label" for="quotationInfo1">報價單產品資料1...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="quotationInfo2" name="quotationInfo2" value="{{quotationInfo2}}" />
+              <label class="mdl-textfield__label" for="quotationInfo2">報價單產品資料2...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="quotationInfo3" name="quotationInfo3" value="{{quotationInfo3}}" />
+              <label class="mdl-textfield__label" for="quotationInfo3">報價單產品資料3...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" value="{{remarks}}" />
+              <label class="mdl-textfield__label" for="remarks">Remarks...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="link1" name="link1" value="{{link1}}" />
+              <label class="mdl-textfield__label" for="link1">Link 1...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="link2" name="link2" value="{{link2}}" />
+              <label class="mdl-textfield__label" for="link2">Link 2...</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="hidden" id="_id" name="_id" value="{{_id}}" />
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('products');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

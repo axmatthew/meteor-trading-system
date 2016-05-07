@@ -1,0 +1,100 @@
+<template name="editPurchaseOrder">
+  {{#contentFor "title"}}修改採購單{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            {{> selectControl field="purchase" values=purchasesList label="Purchase..." defaultValue=purchase}}
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="deliveryAddress" name="deliveryAddress" value="{{deliveryAddress}}" />
+              <label class="mdl-textfield__label" for="deliveryAddress">Delivery Address...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="description" name="description" value="{{description}}" />
+              <label class="mdl-textfield__label" for="description">Description...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="deadline" name="deadline" value="{{formatDate deadline}}" style="border-bottom:1px solid #e57373" required />
+              <label class="mdl-textfield__label" for="deadline">Deadline...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="factory" name="factory" value="{{factory}}" />
+              <label class="mdl-textfield__label" for="factory">廠...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" min="0" step="any" id="cost" name="cost" value="{{cost}}" />
+              <label class="mdl-textfield__label" for="cost">成本 (RMB)...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" min="0" step="any" id="price" name="price" value="{{price}}" />
+              <label class="mdl-textfield__label" for="price">單價...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" min="0" step="1" id="amount" name="amount" value="{{amount}}" />
+              <label class="mdl-textfield__label" for="amount">數量...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" min="0" step="1" id="spareAmount" name="spareAmount" value="{{spareAmount}}" />
+              <label class="mdl-textfield__label" for="spareAmount">備品...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="otherCost" name="otherCost" value="{{otherCost}}" />
+              <label class="mdl-textfield__label" for="otherCost">其他成本 (RMB)...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="logisticsCost" name="logisticsCost" value="{{logisticsCost}}" />
+              <label class="mdl-textfield__label" for="logisticsCost">預計物流成本 (RMB)...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="sampleDate" name="sampleDate" value="{{formatDate sampleDate}}" />
+              <label class="mdl-textfield__label" for="sampleDate">預計出樣板日...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="deliveryDate" name="deliveryDate" value="{{formatDate deliveryDate}}" />
+              <label class="mdl-textfield__label" for="deliveryDate">預計出貨日...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" value="{{remarks}}" />
+              <label class="mdl-textfield__label" for="remarks">Remarks...</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="hidden" id="enquiryId" name="enquiryId" value="{{enquiryId}}" />
+        <input type="hidden" id="poNum" name="poNum" value="{{poNum}}" />
+        <input type="hidden" id="signDate" name="signDate" value="{{formatDate signDate}}" />
+        <input type="hidden" id="_id" name="_id" value="{{_id}}" />
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定{{#unless createdCashFlow}} (and Create Cash Flow){{/unless}}" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('purchaseOrders');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

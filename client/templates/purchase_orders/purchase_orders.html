@@ -1,0 +1,72 @@
+<template name="purchaseOrders">
+  {{#contentFor "title"}}採購單列表{{/contentFor}}
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell mdl-cell--3-col">
+      {{#if limitedAccess}}
+        {{> filterControl field="sales" cursor=allPurchaseOrdersForFilterControl }}
+      {{else}}
+        {{> filterControl field="sales" cursor=allPurchaseOrdersForFilterControl default=currentUser.username }}
+      {{/if}}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="purchase" cursor=allPurchaseOrdersForFilterControl }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="description" showValues=false }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked="checked" />
+        <span class="mdl-checkbox__label">Hide done and closed</span>
+      </label>
+    </div>
+  </div>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">
+        </th>
+        <th class="mdl-data-table__cell--non-numeric">Sign Date</th>
+        <th class="mdl-data-table__cell--non-numeric">PO#</th>
+        <th class="mdl-data-table__cell--non-numeric">Purchase</th>
+        <th class="mdl-data-table__cell--non-numeric">Sales</th>
+        <th class="mdl-data-table__cell--non-numeric">Company Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Contact Person</th>
+        <th class="mdl-data-table__cell--non-numeric">Tel(s)</th>
+        <th class="mdl-data-table__cell--non-numeric">Email(s)</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Delivery Address</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Description</th>
+        <th class="mdl-data-table__cell--non-numeric">Deadline</th>
+        <th class="mdl-data-table__cell--non-numeric">Paid sample</th>
+        <th class="mdl-data-table__cell--non-numeric">Paid deposit</th>
+        <th class="mdl-data-table__cell--non-numeric">Paid remaining</th>
+        <th class="mdl-data-table__cell--non-numeric">廠</th>
+        <th>成本 (RMB)</th>
+        {{#unless limitedAccess}}
+        <th>單價</th>
+        {{/unless}}
+        <th>數量</th>
+        <th>備品</th>
+        <th>其他成本 (RMB)</th>
+        <th>預計物流成本 (RMB)</th>
+        <th class="mdl-data-table__cell--non-numeric">預計出樣板日</th>
+        <th class="mdl-data-table__cell--non-numeric">預計出貨日</th>
+        <th class="mdl-data-table__cell--non-numeric">已付廠樣板費</th>
+        <th class="mdl-data-table__cell--non-numeric">已付廠訂金</th>
+        <th class="mdl-data-table__cell--non-numeric">已付廠尾數</th>
+        <th class="mdl-data-table__cell--non-numeric">狀態</th>
+        <th class="mdl-data-table__cell--non-numeric">Finish Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Remarks</th>
+        {{#unless limitedAccess}}
+        <th>G.P. %</th>
+        <th>Est. Profit (HKD)</th>
+        {{/unless}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each purchaseOrders}}
+      {{> purchaseOrderItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

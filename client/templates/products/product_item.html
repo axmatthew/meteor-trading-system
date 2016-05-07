@@ -1,0 +1,36 @@
+<template name="productItem">
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="action-menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'editProduct'}}');">修改</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('deleteProduct', '{{_id}}');">刪除</li>
+      </ul>
+    </td> 
+    <td class="mdl-data-table__cell--non-numeric">{{pic}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{code}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{category1}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{category2}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{inWebsite}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{haveSample}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{size}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{weight}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{material}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{packing}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{printing}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{moq}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{cost}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{otherCost}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{leadTime}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{supplier}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{quotationInfo1}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{quotationInfo2}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{quotationInfo3}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{remarks}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{link1}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{link2}}</td>
+  </tr>
+</template>

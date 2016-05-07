@@ -1,0 +1,51 @@
+<template name="newTask">
+  {{#contentFor "title"}}新增工作{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="owner" name="owner" value="{{sales}}{{#unless sales}}{{currentUser.username}}{{/unless}}" />
+              <label class="mdl-textfield__label" for="owner">Owner...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="date" name="date" value="{{formatDate 'Now'}}" />
+              <label class="mdl-textfield__label" for="date">Date...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            {{> selectControl field="title" values=taskTitlesList label="Title..." defaultValue=""}}
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" />
+              <label class="mdl-textfield__label" for="remarks">Remarks...</label>
+            </div>
+          </div>
+          {{#if _id}}
+          <div class="mdl-cell mdl-cell--12-col">
+            <button id="status-menu-{{_id}}" class="mdl-button mdl-js-button" onclick="return false;">Change Enquiry Status</button>
+            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="status-menu-{{_id}}">
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'New');">New</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Quoted');">Quoted</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Active');">Active</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'NotActive');">Not Active</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Signed');">Signed</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Done');">Done</li>
+              <li class="mdl-menu__item" onclick="Meteor.call('editEnquiryStatus', '{{_id}}', 'Closed');">Closed</li>
+            </ul>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="hidden" id="enquiryId" name="enquiryId" value="{{_id}}" />
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('tasks');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

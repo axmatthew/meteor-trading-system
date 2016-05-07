@@ -1,0 +1,73 @@
+<template name="reports">
+  {{#contentFor "title"}}報表{{/contentFor}}
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+      <div class="mdl-card mdl-shadow--2dp width-100-percent">
+        <div class="mdl-card__title">
+          <div id="enquiry-report-container" class="width-100-percent" style="height: 300px"></div>
+        </div>
+        <div class="mdl-card__supporting-text">
+          This show the enquiry counts, you can switch between filtering options by staff or by month.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="drawEnquiryReportByStaff('enquiry-report-container');">By Staff</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="drawEnquiryReportByMonth('enquiry-report-container');">By Month</button>
+        </div>
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="enquiry-report-more">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="enquiry-report-more">
+            <li class="mdl-menu__item" id="enquiry-report-this-month">This month</li>
+            <li class="mdl-menu__item" id="enquiry-report-all-time">All time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col">
+      <div class="mdl-card mdl-shadow--2dp width-100-percent">
+        <div class="mdl-card__title">
+          <div id="sales-report-container" class="width-100-percent" style="height: 300px"></div>
+        </div>
+        <div class="mdl-card__supporting-text">
+          This show the sum of gross profits, you can switch between filtering options by staff or by month.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="drawSalesReportByStaff('sales-report-container');">By Staff</button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="drawSalesReportByMonth('sales-report-container');">By Month</button>
+        </div>
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="sales-report-more">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="sales-report-more">
+            <li class="mdl-menu__item" id="sales-report-this-month">This month</li>
+            <li class="mdl-menu__item" id="sales-report-last-month">Last month</li>
+            <li class="mdl-menu__item" id="sales-report-all-time">All time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-card mdl-shadow--2dp width-100-percent">
+        <div class="mdl-card__title" style="display: block">
+          <h5>Cash Flow Reports</h5>
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--6-col">
+              {{> cashFlowsReport incomeCashFlows}}
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+              {{> cashFlowsReport expenseCashFlows}}
+            </div>
+          </div>
+        </div>
+        <div class="mdl-card__supporting-text">
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+        </div>
+        <div class="mdl-card__menu">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

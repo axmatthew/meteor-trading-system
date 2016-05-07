@@ -1,0 +1,32 @@
+<template name="allDocuments">
+  {{#contentFor "title"}}所有文件列表{{/contentFor}}
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="type" cursor=allDocumentsForFilterControl }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="username" cursor=allDocumentsForFilterControl }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="parameters" showValues=false }}
+    </div>
+  </div>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">
+        </th>
+        <th class="mdl-data-table__cell--non-numeric">Creation Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Owner</th>
+        <th class="mdl-data-table__cell--non-numeric">Type</th>
+        <th class="mdl-data-table__cell--non-numeric">Document#</th>
+        <th class="mdl-data-table__cell--non-numeric">Parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each documents}}
+      {{> documentItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

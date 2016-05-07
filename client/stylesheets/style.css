@@ -1,0 +1,145 @@
+html, body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+svg {
+  overflow: overlay; /* Prevent google chart chopped legend */
+}
+
+.mdl-data-table td,
+.mdl-data-table th {
+  padding: 0 5px 0 5px;
+  text-align: right;
+  line-height: 30px;
+  max-width: 100px;
+  overflow: hidden;
+}
+.mdl-data-table th.long-content,
+.mdl-data-table td.long-content {
+  max-width: 180px;
+}
+.mdl-data-table td:first-child,
+.mdl-data-table th:first-child {
+  overflow: visible;
+}
+.mdl-data-table td,
+.mdl-data-table th,
+.mdl-data-table tbody tr {
+  height: 24px;
+}
+
+main#main-content-overflow-x-auto {
+  overflow-x: auto;
+}
+
+table.table-width-100-percent {
+  width: 100%;
+}
+
+.width-100-percent {
+  width: 100%;
+}
+
+.height-100-percent {
+  height: 100%;
+}
+
+.chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  margin: 2px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #E4E4E4;
+  overflow: hidden;
+}
+
+div.form-card-width-768px {
+  width: 768px;
+}
+
+tr.tr-New {
+}
+
+tr.tr-Quoted, tr.tr-Sample {
+  background-color: #ffeb3b
+}
+
+tr.tr-Active, tr.tr-Manufacturing {
+  background-color: #e57373
+}
+
+tr.tr-NotActive {
+  background-color: #bcaaa4
+}
+
+tr.tr-Signed, tr.tr-Delivering {
+  background-color: #ce93d8
+}
+
+tr.tr-Done {
+  background-color: #4caf50
+}
+
+tr.tr-Closed {
+  background-color: #9e9e9e
+}
+
+.mdl-card,
+.mdl-card__supporting-text {
+  overflow: visible;
+}
+
+.document-card {
+  background: #757575;
+  color: #fff;
+}
+
+.Quotation-card,
+.EQuotation-card {
+  background: #ff5722; /* sales con deep purple #673ab7; invoice teal #009688, receipt indigo #3f51b5, dn brown #795548 */
+}
+
+.SalesConfirmation-card {
+  background: #673ab7;
+}
+
+.Invoice-card {
+  background: #009688;
+}
+
+.Receipt-card {
+  background: #3f51b5;
+}
+
+.DeliveryNote-card {
+  background: #795548;
+}
+
+.document-card > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.document-card > .mdl-card__title {
+  align-items: flex-start;
+}
+
+.document-card > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+
+.document-card > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+
+.document-card > .mdl-card__title,
+.document-card > .mdl-card__actions,
+.document-card > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}

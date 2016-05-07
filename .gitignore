@@ -1,0 +1,8 @@
+node_modules
+/meteor.pem
+/mup.json
+/settings.json
+.*
+!/.babelrc
+!/.eslintrc
+!/.gitignore

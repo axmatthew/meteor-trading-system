@@ -1,0 +1,45 @@
+<template name="migration">
+  {{#contentFor "title"}}Migration Tool{{/contentFor}}
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+      <a href="#enquiries-panel" class="mdl-tabs__tab is-active">Enquiries</a>
+      <a href="#purchase-orders-panel" class="mdl-tabs__tab">Purchase Orders</a>
+    </div>
+
+    <div class="mdl-tabs__panel is-active" id="enquiries-panel">
+      <form action="#" id="enquiries-form">
+        <div class="mdl-card mdl-shadow--4dp width-100-percent">
+          <div class="mdl-card__title mdl-card--expand">
+            <div class="mdl-grid width-100-percent">
+              <div class="mdl-cell mdl-cell--12-col">
+                <textarea class="mdl-textfield__input" type="text" rows= "30" id="enquiriesData" name="enquiriesData" ></textarea>
+              </div>
+            </div>
+          </div>
+          <div id="p1" class="mdl-progress mdl-js-progress width-100-percent"></div>
+          <div class="mdl-card__actions mdl-card--border">
+            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Add all" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="mdl-tabs__panel" id="purchase-orders-panel">
+      <form action="#" id="purchase-orders-form">
+        <div class="mdl-card mdl-shadow--4dp width-100-percent">
+          <div class="mdl-card__title mdl-card--expand">
+            <div class="mdl-grid width-100-percent">
+              <div class="mdl-cell mdl-cell--12-col">
+                <textarea class="mdl-textfield__input" type="text" rows= "30" id="purchaseOrdersData" name="purchaseOrdersData" ></textarea>
+              </div>
+            </div>
+          </div>
+          <div id="p2" class="mdl-progress mdl-js-progress width-100-percent"></div>
+          <div class="mdl-card__actions mdl-card--border">
+            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Add all" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>

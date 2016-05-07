@@ -1,0 +1,37 @@
+<template name="suppliers">
+  {{#contentFor "title"}}供應商列表{{/contentFor}}
+  <!-- http://www.getmdl.io/components/index.html#tables-section [Data table] -->
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">
+          <button id="action-menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu">
+            <li class="mdl-menu__item" onclick="Router.go('newSupplier');">新增</li>
+          </ul>
+        </th>
+        <th class="mdl-data-table__cell--non-numeric">分類</th>
+        <th class="mdl-data-table__cell--non-numeric">PIC</th>
+        <th class="mdl-data-table__cell--non-numeric">廠</th>
+        <th class="mdl-data-table__cell--non-numeric">聯絡人</th>
+        <th class="mdl-data-table__cell--non-numeric">電話</th>
+        <th class="mdl-data-table__cell--non-numeric">QQ</th>
+        <th class="mdl-data-table__cell--non-numeric">旺旺</th>
+        <th class="mdl-data-table__cell--non-numeric">地址</th>
+        <th class="mdl-data-table__cell--non-numeric">主要產品</th>
+        <th class="mdl-data-table__cell--non-numeric">阿里巴巴</th>
+        <th class="mdl-data-table__cell--non-numeric">分行</th>
+        <th class="mdl-data-table__cell--non-numeric">戶名</th>
+        <th class="mdl-data-table__cell--non-numeric">賬號</th>
+        <th class="mdl-data-table__cell--non-numeric">意見</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each suppliers}}
+      {{> supplierItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

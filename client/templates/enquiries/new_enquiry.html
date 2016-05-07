@@ -1,0 +1,66 @@
+<template name="newEnquiry">
+  {{#contentFor "title"}}新增查詢{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            {{> selectControl field="sales" values=salesList label="Sales..." defaultValue=""}}
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="companyName" name="companyName" />
+              <label class="mdl-textfield__label" for="companyName">Company Name...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="contactPerson" name="contactPerson" />
+              <label class="mdl-textfield__label" for="contactPerson">Contact Person...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="tels" name="tels" />
+              <label class="mdl-textfield__label" for="tels">Tel(s)...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="emails" name="emails" />
+              <label class="mdl-textfield__label" for="emails">Email(s)...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="address" name="address" />
+              <label class="mdl-textfield__label" for="address">Address...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="description" name="description" />
+              <label class="mdl-textfield__label" for="description">Description...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="deadline" name="deadline" />
+              <label class="mdl-textfield__label" for="deadline">Deadline...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" />
+              <label class="mdl-textfield__label" for="remarks">Remarks...</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('enquiries');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

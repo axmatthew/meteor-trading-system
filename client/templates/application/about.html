@@ -1,0 +1,30 @@
+<template name="about">
+  {{#contentFor "title"}}關於這系統{{/contentFor}}
+  <h4>Upcoming features</h4>
+  <p>HR system to manage staff salary and commission details.</p>
+  <p>Manager accounts with extra permissions to view extra data and reports, e.g. task reports for other staff.</p>
+  <h4>Issues to be fixed</h4>
+  <p>Cashflow reports show description and contact person tooltip.</p>
+  <p>Add total sum of unpaid payments in cash flow reports.</p>
+  <h4>Other issues that are too difficult to fix or not too important, probably will be ignored</h4>
+  <p>Cannot unpaid paid cash flow records.</p>
+  <p>There is no paging for big tables.</p>
+  <p>There is no header and columns freezing for big tables.</p>
+  <p>There is no error message saying you're not logged in when performing any login required actions.</p>
+  <p>The system didn't let you know if any error happened, it just stops.</p>
+  <p>The left drawer is ugly!</p>
+  <p>Task can only link to enquiry, not purchase orders.</p>
+  <h4>Some notes about cash flow records</h4>
+  <ul>
+    <li>Every time you create a purchase order, the system will automatically create 4 cash flow records.</li>
+    <li>In order for the cash flow records to be accurate, make sure you enter the pricing details, deadline, sample date and delivery date correctly.</li>
+    <li>At least you need to enter an appropriate deadline, if the delivery date is empty, the system will use the deadline as the delivery date.</li>
+    <li>If the order have sample, you need to enter the appropriate sample date, otherwise the system will consider the order without sampling stage.</li>
+    <li>If you relly want to create the records later on, you can leaves all pricing details as 0, and edit it later.</li>
+    <li>The easy way to do is to enter all the details when creating a purchase order, but in case you messed up, you can goto the <a href="{{pathFor 'cashFlows'}}">/cashflows</a> to edit or delete flaws records.</li>
+    <li>If you expect your client to pay more than 2 weeks after delivery, you should goto the <a href="{{pathFor 'cashFlows'}}">/cashflows</a> to manually edit the records.</li>
+    <li>Editing pricing details will not automatically update the cash flow records, if the update is substantial, you should goto the <a href="{{pathFor 'cashFlows'}}">/cashflows</a> to manually edit the records.</li>
+  </ul>
+  <h4>Other notes</h4>
+  <p>This is a simple system intended for small trading companies for about 10 users, it is targeted to be simple and easy to use, without too much considerations about functionality, performance, and security.</p>
+</template>

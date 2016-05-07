@@ -1,0 +1,22 @@
+<template name="drawer">
+  <div class="mdl-layout__drawer">
+    <header>
+      <span class="mdl-layout-title">Trading System</span>
+      {{> loginButtons}}
+    </header>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="{{pathFor 'tasks'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">My Tasks</a>
+      {{#unless limitedAccess}}
+      <a class="mdl-navigation__link" href="{{pathFor 'enquiries'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Enquiries</a>
+      {{/unless}}
+      <a class="mdl-navigation__link" href="{{pathFor 'purchaseOrders'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Purchase Orders</a>
+      {{#unless limitedAccess}}
+      <a class="mdl-navigation__link" href="{{pathFor 'products'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Products</a>
+      <a class="mdl-navigation__link" href="{{pathFor 'suppliers'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Suppliers</a>
+      <a class="mdl-navigation__link" href="{{pathFor 'reports'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Reports</a>
+      <a class="mdl-navigation__link" href="{{pathFor 'allDocuments'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">Documents</a>
+      <a class="mdl-navigation__link" href="{{pathFor 'about'}}" onclick="$('.mdl-layout__drawer').toggleClass('is-visible');">About</a>
+      {{/unless}}
+    </nav>
+  </div>
+</template>

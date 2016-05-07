@@ -1,0 +1,49 @@
+<template name="enquiries">
+  {{#contentFor "title"}}查詢列表{{/contentFor}}
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="sales" cursor=allEnquiriesForFilterControl default=currentUser.username }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      {{> filterControl field="description" showValues=false }}
+    </div>
+    <div class="mdl-cell mdl-cell--3-col">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked="checked" />
+        <span class="mdl-checkbox__label">Hide done and closed</span>
+      </label>
+    </div>
+  </div>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">
+          <button id="action-menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu">
+            <li class="mdl-menu__item" onclick="Router.go('newEnquiry');">新增</li>
+          </ul>
+        </th>
+        <th class="mdl-data-table__cell--non-numeric">Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Sales</th>
+        <th class="mdl-data-table__cell--non-numeric">Company Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Contact Person</th>
+        <th class="mdl-data-table__cell--non-numeric">Tel(s)</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Email(s)</th>
+        <th class="mdl-data-table__cell--non-numeric">Address</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Description</th>
+        <th class="mdl-data-table__cell--non-numeric">Deadline</th>
+        <th class="mdl-data-table__cell--non-numeric">Status</th>
+        <th class="mdl-data-table__cell--non-numeric">Enquiry#</th>
+        <th class="mdl-data-table__cell--non-numeric">Remarks</th>
+        <th class="mdl-data-table__cell--non-numeric">Next Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each enquiries}}
+      {{> enquiryItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

@@ -1,0 +1,31 @@
+<!--
+To use this custom control, add the following code into routers.js
+Router.onBeforeAction(function() {
+  Session.set("filters", {});
+  this.next();
+});
+
+And add Session.get("filters") into the helper function, you can only use 1 filters per page
+
+e.g.
+{{> filterControl field="sales" cursor=enquiries }}
+{{> filterControl field="description" showValues=false }}
+field - the field to filter
+showValues - show distinct fields values in menu (default true)
+cursor - to get the distinct value
+default - default filter value (default 'All')
+
+
+-->
+<template name="filterControl">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="filter-{{field}}">
+    <input class="mdl-textfield__input" type="text" id="filter-input-{{field}}" value="{{defaultValue}}" />
+    <label class="mdl-textfield__label" for="filter-input-{{field}}">Filter {{field}}...</label>
+  </div>
+  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="filter-{{field}}">
+    <li class="mdl-menu__item" onclick="$('#filter-input-{{field}}').val('All').change();$('#filter-{{field}}').addClass('is-focused');">All</li>
+    {{#each values}}
+    <li class="mdl-menu__item" onclick="$('#filter-input-{{../field}}').val('{{this}}').change();$('#filter-{{../field}}').addClass('is-focused');">{{this}}</li>
+    {{/each}}
+  </ul>
+</template>

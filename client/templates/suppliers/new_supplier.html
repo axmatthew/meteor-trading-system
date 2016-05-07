@@ -1,0 +1,99 @@
+<template name="newSupplier">
+  {{#contentFor "title"}}新增供應商{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="category" name="category" />
+              <label class="mdl-textfield__label" for="category">分類...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="pic" name="pic" />
+              <label class="mdl-textfield__label" for="pic">PIC...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="factory" name="factory" />
+              <label class="mdl-textfield__label" for="factory">廠...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="contactPerson" name="contactPerson" />
+              <label class="mdl-textfield__label" for="contactPerson">聯絡人...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="contactPhone" name="contactPhone" />
+              <label class="mdl-textfield__label" for="contactPhone">電話...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="qq" name="qq" />
+              <label class="mdl-textfield__label" for="qq">QQ...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="wangWang" name="wangWang" />
+              <label class="mdl-textfield__label" for="wangWang">旺旺...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="address" name="address" />
+              <label class="mdl-textfield__label" for="address">地址...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="majorProducts" name="majorProducts" />
+              <label class="mdl-textfield__label" for="majorProducts">主要產品...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="alibaba" name="alibaba" />
+              <label class="mdl-textfield__label" for="alibaba">阿里巴巴...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="bankAccountBranch" name="bankAccountBranch" />
+              <label class="mdl-textfield__label" for="bankAccountBranch">分行...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="bankAccountName" name="bankAccountName" />
+              <label class="mdl-textfield__label" for="bankAccountName">戶名...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="bankAccountNumber" name="bankAccountNumber" />
+              <label class="mdl-textfield__label" for="bankAccountNumber">賬號...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" />
+              <label class="mdl-textfield__label" for="remarks">意見...</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('suppliers');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

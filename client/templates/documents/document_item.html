@@ -1,0 +1,19 @@
+<template name="documentItem">
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">{{#if gSheetId}}more_vert{{/if}}</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="window.open('https://docs.google.com/spreadsheets/d/{{gSheetId}}/export?format=xlsx', '_self');">Excel</li>
+        <li class="mdl-menu__item" onclick="window.open('https://docs.google.com/spreadsheets/d/{{gSheetId}}/export?format=pdf&gridlines=0&portrait=1&fitw=1', '_self');">PDF</li>
+        <li class="mdl-menu__item" onclick="window.open('https://docs.google.com/spreadsheets/d/{{gSheetId}}/edit', '_blank');">Google Sheets</li>
+      </ul>
+    </td> 
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate createdAt}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{username}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{type}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{documentNum}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{parameters}}</td>
+  </tr>
+</template>

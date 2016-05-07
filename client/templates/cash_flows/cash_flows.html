@@ -1,0 +1,22 @@
+<template name="cashFlows">
+  {{#contentFor "title"}}Cash Flow 列表{{/contentFor}}
+  <!-- http://www.getmdl.io/components/index.html#tables-section [Data table] -->
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-width-100-percent">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="mdl-data-table__cell--non-numeric">Date</th>
+        <th class="mdl-data-table__cell--non-numeric">Sales</th>
+        <th class="mdl-data-table__cell--non-numeric">Type</th>
+        <th class="mdl-data-table__cell--non-numeric long-content">Title</th>
+        <th class="mdl-data-table__cell--non-numeric">Amount</th>
+        <th class="mdl-data-table__cell--non-numeric">Paid</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each cashFlows}}
+      {{> cashFlowItem}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>

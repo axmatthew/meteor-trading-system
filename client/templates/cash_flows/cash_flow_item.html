@@ -1,0 +1,19 @@
+<template name="cashFlowItem">
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">
+      <button id="action-menu-{{_id}}" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="action-menu-{{_id}}">
+        <li class="mdl-menu__item" onclick="Router.go('{{pathFor 'editCashFlow'}}');">修改</li>
+        <li class="mdl-menu__item" onclick="Meteor.call('deleteCashFlow', '{{_id}}');">刪除</li>
+      </ul>
+    </td>
+    <td class="mdl-data-table__cell--non-numeric">{{formatDate date}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{sales}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{type}}</td>
+    <td class="mdl-data-table__cell--non-numeric long-content">{{title}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{amount}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{done}}</td>
+  </tr>
+</template>

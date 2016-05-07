@@ -1,0 +1,37 @@
+<template name="editTask">
+  {{#contentFor "title"}}修改工作{{/contentFor}}
+  <form action="#">
+    <div class="mdl-card mdl-shadow--4dp form-card-width-768px">
+      <div class="mdl-card__title mdl-card--expand">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="owner" name="owner" value="{{owner}}" />
+              <label class="mdl-textfield__label" for="owner">Owner...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="date" name="date" value="{{formatDate date}}" />
+              <label class="mdl-textfield__label" for="date">Date...</label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            {{> selectControl field="title" values=taskTitlesList label="Title..." defaultValue=title}}
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="remarks" name="remarks" value="{{remarks}}" />
+              <label class="mdl-textfield__label" for="remarks">Remarks...</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <input type="hidden" id="_id" name="_id" value="{{_id}}" />
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="確定" />
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="Router.go('tasks');return false;">取消</button>
+      </div>
+    </div>
+  </form>
+</template>

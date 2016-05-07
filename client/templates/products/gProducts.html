@@ -1,0 +1,5 @@
+<template name="gProducts">
+  {{#contentFor "title"}}產品列表{{/contentFor}}
+  <a href="https://docs.google.com/spreadsheets/d/{{CONFIG 'GSHEET_ID'}}/edit#gid={{CONFIG 'PRODUCTS_GID'}}" target="_blank">Edit products on Google Sheets</a>
+  <iframe src="https://docs.google.com/spreadsheets/d/{{CONFIG 'GSHEET_ID'}}/pubhtml?gid={{CONFIG 'PRODUCTS_GID'}}&amp;single=true" style="width:100%;height:540px"></iframe>
+</template>
